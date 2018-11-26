@@ -2,7 +2,7 @@
 
 Telebook::Telebook()
 {
-	// Constructor;
+	// Constructor TEST;
 }
 
 void Telebook::addEntry(std::string name, std::string number)
