@@ -2,7 +2,7 @@
 
 Telebook::Telebook()
 {
-	// Constructor TEST;
+	// Constructor;
 }
 
 void Telebook::addEntry(std::string name, std::string number)
@@ -17,7 +17,7 @@ void Telebook::addEntry(std::string name, std::string number)
 
 	if (!hit.second)
 	{
-		printf_s("Contact already exists");
+		printf_s("Contact already exists\n");
 	}
 }
 
@@ -30,7 +30,7 @@ void Telebook::addEntry(std::string number, Contact ct)
 
 	if (!hit.second)
 	{
-		printf_s("Occupied number");
+		printf_s("Occupied number\n");
 		return;
 	}
 }
@@ -40,10 +40,10 @@ void Telebook::findEntry(std::string name)
 	Contact (*ct) = getEntry(name);
 	if (!ct)
 	{
-		printf_s("Contact not found");
+		printf_s("Contact not found\n");
 		return;
 	}
-	std::cout << (*ct).getNumber();
+	std::cout << (*ct).getNumber() << std::endl;
 }
 
 Contact* Telebook::getEntry(std::string name)
@@ -67,7 +67,7 @@ void Telebook::aliasEntry(std::string name, std::string alias)
 	Contact* ct = getEntry(name);
 	if (!ct)
 	{
-		printf_s("Contact not found");
+		printf_s("Contact not found\n");
 		return;
 	}
 	(*ct).addName(alias);
@@ -79,8 +79,15 @@ void Telebook::changeEntry(std::string name, std::string number)
 	Contact(*ct) = getEntry(name);
 	if (!ct)
 	{
-		printf_s("Contact not found");
+		printf_s("Contact not found\n");
 		return;
 	}
 	addEntry(number, *ct);
+	removeEntry(ct->getNumber());
+}
+
+void Telebook::removeEntry(string number)
+{
+	map<string, Contact>::iterator hit = entries.find(number);
+	entries.erase(hit);
 }

@@ -3,7 +3,8 @@
 #include <vector>
 #include <string>
 #include <map>
-#include <cctype>
+#include <sstream>
+#include <iterator>
 
 namespace {
 
@@ -11,7 +12,8 @@ namespace {
 	using std::string;
 	using std::map;
 	using std::pair;
-
+	using std::istringstream;
+	using std::istream_iterator;
 }
 
 class Contact
@@ -41,6 +43,7 @@ public:
 	Contact* getEntry(std::string);
 	void aliasEntry(std::string, std::string);
 	void changeEntry(std::string, std::string);
+	void removeEntry(string number);
 
 private:
 	std::map<std::string, Contact> entries;
