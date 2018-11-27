@@ -24,7 +24,7 @@ void Telebook::addEntry(std::string name, std::string number)
 void Telebook::findEntry(std::string name)
 {
 	Contact (*ct) = getEntry(name);
-	if ((*ct).getNumber() == "")
+	if (!ct)
 	{
 		printf_s("Contact not found");
 		return;
@@ -45,23 +45,25 @@ Contact* Telebook::getEntry(std::string name)
 			}
 		}
 	}
+	return false;
 }
 
 void Telebook::aliasEntry(std::string name, std::string alias)
 {
 	Contact* ct = getEntry(name);
-	if ((*ct).getNumber() == "")
+	if (!ct)
 	{
 		printf_s("Contact not found");
 		return;
 	}
 	(*ct).addName(alias);
+	
 }
 
 void Telebook::changeEntry(std::string name, std::string number)
 {
 	Contact(*ct) = getEntry(name);
-	if ((*ct).getNumber() == "")
+	if (!ct)
 	{
 		printf_s("Contact not found");
 		return;

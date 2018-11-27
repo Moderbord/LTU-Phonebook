@@ -1,7 +1,2 @@
-﻿  pch.cpp
-  Contact.cpp
-  Telebook.cpp
-  TelephoneBookSE.cpp
-  Generating Code...
-c:\users\oscilla\source\repos\telephonebookse\telephonebookse\telebook.cpp(48): warning C4715: 'Telebook::getEntry': not all control paths return a value
-  TelephoneBookSE.vcxproj -> C:\Users\Oscilla\source\repos\TelephoneBookSE\Debug\TelephoneBookSE.exe
+﻿  Telebook.cpp
+  TelephoneBookSE.vcxproj -> C:\Users\Oscilla\Source\Repos\LTU-Phonebook\Debug\TelephoneBookSE.exe
