@@ -36,6 +36,7 @@ class Telebook
 public:
 	Telebook();
 	void addEntry(std::string, std::string);
+	void addEntry(std::string number, Contact ct);
 	void findEntry(std::string);
 	Contact* getEntry(std::string);
 	void aliasEntry(std::string, std::string);

@@ -21,6 +21,20 @@ void Telebook::addEntry(std::string name, std::string number)
 	}
 }
 
+void Telebook::addEntry(std::string number, Contact ct)
+{
+	ct.setNumber(number);
+	std::pair<std::map<std::string, Contact>::iterator, bool> hit;
+
+	hit = entries.insert(std::pair<std::string, Contact>(number, ct));
+
+	if (!hit.second)
+	{
+		printf_s("Occupied number");
+		return;
+	}
+}
+
 void Telebook::findEntry(std::string name)
 {
 	Contact (*ct) = getEntry(name);
@@ -68,5 +82,5 @@ void Telebook::changeEntry(std::string name, std::string number)
 		printf_s("Contact not found");
 		return;
 	}
-
+	addEntry(number, *ct);
 }
